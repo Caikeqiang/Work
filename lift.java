@@ -31,19 +31,19 @@ public class elevator {
         f.setResizable(false);
         f.setLocationRelativeTo(null);
 
-        lab1 = new Label("µ±Ç°Â¥²ã");
-        lab2 = new Label("Ä¿µÄÂ¥²ã");
+        lab1 = new Label("å½“å‰æ¥¼å±‚");
+        lab2 = new Label("ç›®çš„æ¥¼å±‚");
 
         personFloor = new TextField("", 10);
         personToFloor = new TextField("", 10);
 
-        butUp = new Button("¡ü");
-        butDown = new Button("¡ı");
+        butUp = new Button("â†‘");
+        butDown = new Button("â†“");
 
-        screen1 = new TextArea("ÏÔÊ¾ÆÁ", 5, 10, TextArea.SCROLLBARS_NONE);
-        screen2 = new TextArea("ÏÔÊ¾ÆÁ", 5, 10, TextArea.SCROLLBARS_NONE);
-        screen3 = new TextArea("ÏÔÊ¾ÆÁ", 5, 10, TextArea.SCROLLBARS_NONE);
-        screen4 = new TextArea("ÏÔÊ¾ÆÁ", 5, 10, TextArea.SCROLLBARS_NONE);
+        screen1 = new TextArea("æ˜¾ç¤ºå±", 5, 10, TextArea.SCROLLBARS_NONE);
+        screen2 = new TextArea("æ˜¾ç¤ºå±", 5, 10, TextArea.SCROLLBARS_NONE);
+        screen3 = new TextArea("æ˜¾ç¤ºå±", 5, 10, TextArea.SCROLLBARS_NONE);
+        screen4 = new TextArea("æ˜¾ç¤ºå±", 5, 10, TextArea.SCROLLBARS_NONE);
 
         screen1.setEditable(false);
         screen2.setEditable(false);
@@ -75,36 +75,36 @@ public class elevator {
     public boolean isCorrect(int order, int floor, int toFloor) {
         if (1 == order) {
             if (!isBetween20(floor)) {
-                System.out.println("ÄãÔÚÕâ£¿£¿      " + floor + "");
+                System.out.println("ä½ åœ¨è¿™ï¼Ÿï¼Ÿ      " + floor + "");
                 return false;
             }
             if (!isBetween20(toFloor)) {
-                System.out.println("ÄãÒªÈ¥Õâ£¿£¿   " + floor);
+                System.out.println("ä½ è¦å»è¿™ï¼Ÿï¼Ÿ   " + floor);
                 return false;
             }
             if (toFloor <= floor) {
-                System.out.println("ÄãÈ·¶¨ÊÇÒªÉÏÂ¥£¿ ´Ó  " + floor + "-> " + toFloor);
+                System.out.println("ä½ ç¡®å®šæ˜¯è¦ä¸Šæ¥¼ï¼Ÿ ä»  " + floor + "-> " + toFloor);
                 return false;
             }
             return true;
         } else {
             if (!isBetween20(floor)) {
-                System.out.println("ÄãÔÚÕâ£¿£¿      " + floor + "");
+                System.out.println("ä½ åœ¨è¿™ï¼Ÿï¼Ÿ      " + floor + "");
                 return false;
             }
             if (!isBetween20(toFloor)) {
-                System.out.println("ÄãÒªÈ¥Õâ£¿£¿   " + floor);
+                System.out.println("ä½ è¦å»è¿™ï¼Ÿï¼Ÿ   " + floor);
                 return false;
             }
             if (toFloor >= floor) {
-                System.out.println("ÄãÈ·¶¨ÊÇÒªÏÂÂ¥£¿ ´Ó  " + floor + "-> " + toFloor);
+                System.out.println("ä½ ç¡®å®šæ˜¯è¦ä¸‹æ¥¼ï¼Ÿ ä»  " + floor + "-> " + toFloor);
                 return false;
             }
             return true;
         }
      }
 
-     public int whoIsRun(int e1Distance,int e2Distance,int e3Distance,int e4Distance){//¸ù¾İ´«Èë²ÎÊıÅĞ¶ÏÄÄ¸öµçÌİ×îÓÅ
+     public int whoIsRun(int e1Distance,int e2Distance,int e3Distance,int e4Distance){//æ ¹æ®ä¼ å…¥å‚æ•°åˆ¤æ–­å“ªä¸ªç”µæ¢¯æœ€ä¼˜
         int[] arr = new int[]{e1Distance,e2Distance,e3Distance,e4Distance};
         int index=0;
         for(int i=1;i<4;i++){
@@ -114,7 +114,7 @@ public class elevator {
         return index+1;
      }
 
-     private void myEvent(){//´´½¨ÊÂ¼ş¼àÌı
+     private void myEvent(){//åˆ›å»ºäº‹ä»¶ç›‘å¬
         f.addWindowListener(new WindowAdapter(){
         	public void windowClosing(WindowEvent e){
         		System.exit(0);
@@ -127,7 +127,7 @@ public class elevator {
         		int code = e.getKeyCode();
         		if(!(code>=KeyEvent.VK_0 && code <= KeyEvent.VK_9 || code==8))
         		{
-        		       System.out.println(code+"... ÊÇ·Ç·¨µÄ");
+        		       System.out.println(code+"... æ˜¯éæ³•çš„");
         		       e.consume();
         		        }
         		    }
@@ -138,13 +138,13 @@ public class elevator {
         	   int code = e.getKeyCode();
         	   if(!(code>=KeyEvent.VK_0 && code <= KeyEvent.VK_9 || code==8))
         	   {
-        		            System.out.println(code+"... ÊÇ·Ç·¨µÄ");
+        		            System.out.println(code+"... æ˜¯éæ³•çš„");
         		            e.consume();
         		        }
         		    }
         	});
 
-        butUp.addActionListener(new ActionListener(){//ÉÏÉı°´Å¥
+        butUp.addActionListener(new ActionListener(){//ä¸Šå‡æŒ‰é’®
             public void actionPerformed(ActionEvent e){
         		        int personF = new Integer(personFloor.getText());
         		        int personTF = new Integer(personToFloor.getText());
@@ -154,11 +154,11 @@ public class elevator {
         		        }
         		        else
         		            order = 0;
-        		        System.out.println("ÉÏÉı°´Å¥°´ÏÂ");
+        		        System.out.println("ä¸Šå‡æŒ‰é’®æŒ‰ä¸‹");
         		    }
         	});
 
-        butDown.addActionListener(new ActionListener(){//ÏÂ½µ°´Å¥
+        butDown.addActionListener(new ActionListener(){//ä¸‹é™æŒ‰é’®
         	public void actionPerformed(ActionEvent e){
         		        int personF = new Integer(personFloor.getText());
         		        int personTF = new Integer(personToFloor.getText());
@@ -168,12 +168,12 @@ public class elevator {
         		        }
         		        else
         		            order = 0;
-        		        System.out.println("ÏÂ½µ°´Å¥°´ÏÂ");
+        		        System.out.println("ä¸‹é™æŒ‰é’®æŒ‰ä¸‹");
         		    }
         		});
         }
 
-        public void myRun()//ÎªÁËµ÷ÓÃ·Ç¾²Ì¬·½·¨×Ô´´µÄÖ÷º¯Êı~
+        public void myRun()//ä¸ºäº†è°ƒç”¨éé™æ€æ–¹æ³•è‡ªåˆ›çš„ä¸»å‡½æ•°~
         {    
 
         		Elevator e1 = new Elevator(1,800,0);
@@ -194,7 +194,7 @@ public class elevator {
         		t3.start();
         		t4.start();
         		
-        		while(true)//½ÓÊÕÃüÁî
+        		while(true)//æ¥æ”¶å‘½ä»¤
         		{    
         		    try {
         		        Thread.sleep(2000);
@@ -202,12 +202,12 @@ public class elevator {
         		        e.printStackTrace();
         		    }
 
-        		    //Âß¼­ÅĞ¶Ï£¬ÄÄ¸öµçÌİÓµÓĞ×î¶ÌÂ·¾¶ÄÄ¸öµçÌİÈ¥½ÓÈË
-        		    if(1 == order){//ÉÏÉı°´Å¥
+        		    //é€»è¾‘åˆ¤æ–­ï¼Œå“ªä¸ªç”µæ¢¯æ‹¥æœ‰æœ€çŸ­è·¯å¾„å“ªä¸ªç”µæ¢¯å»æ¥äºº
+        		    if(1 == order){//ä¸Šå‡æŒ‰é’®
         		        int personF = new Integer(personFloor.getText());
         		        int personTF = new Integer(personToFloor.getText());
 
-        		        //Âß¼­ÅĞ¶Ï µçÌİ×îÓÅ·½°¸
+        		        //é€»è¾‘åˆ¤æ–­ ç”µæ¢¯æœ€ä¼˜æ–¹æ¡ˆ
         		        int e1Distance = e1.countDistance(personF, order);
         		        int e2Distance = e2.countDistance(personF, order);
         		        int e3Distance = e3.countDistance(personF, order);
@@ -231,12 +231,12 @@ public class elevator {
 
         		        order = 0;
         		    }
-        		    else if(-1 == order)//ÏÂ½µ°´Å¥
+        		    else if(-1 == order)//ä¸‹é™æŒ‰é’®
         		    {
         		        int personF = new Integer(personFloor.getText());
         		        int personTF = new Integer(personToFloor.getText());
 
-        		        //Âß¼­ÅĞ¶Ï µçÌİ×îÓÅ·½°¸
+        		        //é€»è¾‘åˆ¤æ–­ ç”µæ¢¯æœ€ä¼˜æ–¹æ¡ˆ
         		        int e1Distance = e1.countDistance(personF, order);
         		        int e2Distance = e2.countDistance(personF, order);
         		        int e3Distance = e3.countDistance(personF, order);
@@ -260,7 +260,7 @@ public class elevator {
 
         		        order = 0;
         		    }
-        		    //ÇåÀíÆÁÄ»
+        		    //æ¸…ç†å±å¹•
         		    screen1.setText(controller1.getInfo());
         		    screen2.setText(controller2.getInfo());
         		    screen3.setText(controller3.getInfo());
@@ -396,7 +396,7 @@ class Elevator {
                 }
             }
         }
-        return -100;//·ÀÖ¹³ö´íÅĞ¶Ï   
+        return -100;//é˜²æ­¢å‡ºé”™åˆ¤æ–­   
     }
     public void add(int personFloor, int runDirection, int toFloor) {
         if (end - start > 0) {
@@ -421,13 +421,13 @@ class Elevator {
                         toFloors[(end++) % 20] = personFloor;
                         toFloors[(end++) % 20] = toFloor;
                     }
-                    else {//ÈËËùÔÚÂ¥²ã ¸ßÓÚ µçÌİÈ¥µÄ×îµÍÂ¥²ã
+                    else {//äººæ‰€åœ¨æ¥¼å±‚ é«˜äº ç”µæ¢¯å»çš„æœ€ä½æ¥¼å±‚
                         toFloors[end] = toFloors[end - 1];
                         toFloors[end - 1] = personFloor;
                         end = (end++)%20;
-                        if (toFloor < toFloors[end - 1])//ÈËÒªÈ¥Â¥²ãµÍÓÚµçÌİËùÔÚÂ¥²ã
+                        if (toFloor < toFloors[end - 1])//äººè¦å»æ¥¼å±‚ä½äºç”µæ¢¯æ‰€åœ¨æ¥¼å±‚
                             toFloors[(end++) % 20] = toFloor;
-                        else {    //ÈËÒªÈ¥Â¥²ã¸ßÓÚµçÌİËùÔÚÂ¥²ã
+                        else {    //äººè¦å»æ¥¼å±‚é«˜äºç”µæ¢¯æ‰€åœ¨æ¥¼å±‚
                             toFloors[end] = toFloors[end - 1];
                             toFloors[end - 1] = toFloor;
                             end = (end++) % 20;
@@ -435,34 +435,34 @@ class Elevator {
                     }
                 }
             }
-            else { // ·´·½Ïò  
+            else { // åæ–¹å‘  
                 toFloors[(end++) % 20] = personFloor;  
                 toFloors[(end++) % 20] = toFloor;  
             }  
         }     
-        else // µçÌİÄ¿±êÂ¥²ãÊıÁ¿Îª1»òÕß0  
+        else // ç”µæ¢¯ç›®æ ‡æ¥¼å±‚æ•°é‡ä¸º1æˆ–è€…0  
           {  
                 toFloors[(end++) % 20] = personFloor;  
                 toFloors[(end++) % 20] = toFloor;  
           }  
     }         
-            public void run() throws Exception // µçÌİÔËĞĞ  
+            public void run() throws Exception // ç”µæ¢¯è¿è¡Œ  
             {  
-                if (start != end) // ĞèÒªÔËĞĞ  
+                if (start != end) // éœ€è¦è¿è¡Œ  
                 {  
-                    if (floor < toFloors[start]) // ÏòÉÏ  
+                    if (floor < toFloors[start]) // å‘ä¸Š  
                     {  
                         runState = 1;  
                         floor++;  
                     }  
-                    else if (floor > toFloors[start]) // ÏòÏÂ  
+                    else if (floor > toFloors[start]) // å‘ä¸‹  
                     {  
                         runState = -1;  
                         floor--;  
                     }  
-                    else // floor = toFloors[start] µ½Ä¿µÄµØ  
+                    else // floor = toFloors[start] åˆ°ç›®çš„åœ°  
                     {  
-                        System.out.println("µçÌİ" + id + " ÒÑµ½´ïµ½´ïÄ¿µÄµØ:" + floor);  
+                        System.out.println("ç”µæ¢¯" + id + " å·²åˆ°è¾¾åˆ°è¾¾ç›®çš„åœ°:" + floor);  
                         runState = 0;  
                         start = (start + 1) % 20;  
                     }  
@@ -471,9 +471,9 @@ class Elevator {
             public String show(){  
                 info = id + "'s Elevator \non " + floor + "'s floor\nis ";  
                 if (1 == runState)  
-                    return info + " ¡ü";  
+                    return info + " â†‘";  
                 if (-1 == runState)  
-                    return info + " ¡ı";  
+                    return info + " â†“";  
                 return info + " -- ";  
             }  
               
